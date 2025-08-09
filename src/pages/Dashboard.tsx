@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import Navigation from '@/components/Navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
+import { Coins } from 'lucide-react';
 
 const Dashboard = () => {
   const { user, redeemPoints, conversionRate } = useAuth();
@@ -69,8 +70,16 @@ const calculateMoney = (points: number) => {
             </div>
             
             <div className="text-right">
-              <h2 className="text-app-text text-2xl mb-2">Total Points</h2>
-              <p className="text-app-text text-6xl font-bold">{user.totalPoints}</p>
+              <h2 className="text-app-text text-2xl mb-3">Total Points</h2>
+              <div className="inline-flex flex-col items-end bg-app-white rounded-2xl px-6 py-4 shadow-lg border border-app-border/50">
+                <div className="flex items-center gap-3">
+                  <Coins className="text-app-primary" size={36} aria-hidden />
+                  <span className="leading-none tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-app-primary to-app-text text-7xl font-extrabold">
+                    {user.totalPoints}
+                  </span>
+                </div>
+                <span className="text-app-text-muted text-sm mt-2">คะแนนสะสมของคุณ</span>
+              </div>
             </div>
           </div>
 
