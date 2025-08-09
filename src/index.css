@@ -11,32 +11,32 @@
     --app-container: 208 60% 92%;        /* #BCE0F7 - Lighter blue for containers */
     --app-primary: 210 80% 45%;          /* Deep blue for buttons and accents */
     --app-primary-hover: 210 80% 40%;    /* Darker blue for hover states */
-    --app-text: 210 100% 15%;            /* Dark blue text */
-    --app-text-muted: 210 50% 25%;       /* Muted blue text */
+    --app-text: 210 100% 12%;            /* Darker blue text for better contrast */
+    --app-text-muted: 210 60% 24%;       /* Muted but readable text */
     --app-white: 0 0% 100%;              /* Pure white */
     --app-border: 210 30% 80%;           /* Light blue borders */
     
     /* Standard design tokens */
     --background: 200 70% 85%;
-    --foreground: 210 100% 15%;
+    --foreground: 210 100% 12%;
 
     --card: 208 60% 92%;
-    --card-foreground: 210 100% 15%;
+    --card-foreground: 210 100% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 100% 15%;
+    --popover-foreground: 210 100% 12%;
 
     --primary: 210 80% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 208 60% 92%;
-    --secondary-foreground: 210 100% 15%;
+    --secondary-foreground: 210 100% 12%;
 
     --muted: 210 30% 80%;
-    --muted-foreground: 210 50% 25%;
+    --muted-foreground: 210 60% 24%;
 
     --accent: 208 60% 92%;
-    --accent-foreground: 210 100% 15%;
+    --accent-foreground: 210 100% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
