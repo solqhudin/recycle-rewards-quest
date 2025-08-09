@@ -7,7 +7,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 
 const Dashboard = () => {
-  const { user, redeemPoints } = useAuth();
+  const { user, redeemPoints, conversionRate } = useAuth();
   const { toast } = useToast();
   const [redeemAmount, setRedeemAmount] = useState(user?.totalPoints?.toString() || '0');
   const [isOpen, setIsOpen] = useState(false);
@@ -21,9 +21,9 @@ const Dashboard = () => {
     }
   };
 
-  const calculateMoney = (points: number) => {
-    return Math.floor(points / 9); // 9 points = 1 baht
-  };
+const calculateMoney = (points: number) => {
+  return Math.floor(points / conversionRate); // conversionRate points = 1 baht
+};
 
   const handleRedeem = () => {
     const points = parseInt(redeemAmount) || 0;
