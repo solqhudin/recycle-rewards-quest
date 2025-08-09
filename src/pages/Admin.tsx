@@ -66,10 +66,10 @@ const Admin = () => {
       <div className="max-w-6xl mx-auto">
         <Navigation />
 
-        <div className="bg-app-container rounded-3xl p-8 shadow-lg space-y-10">
+        <div className="bg-app-container rounded-3xl p-8 shadow-lg space-y-10 animate-fade-in">
           <h1 className="text-3xl font-bold text-app-text">Admin Panel</h1>
 
-          <section aria-labelledby="rate" className="space-y-4">
+          <section aria-labelledby="rate" className="space-y-4 animate-fade-in">
             <h2 id="rate" className="text-2xl font-semibold text-app-text">ปรับอัตราแลกแต้ม</h2>
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <div className="flex items-center gap-3">
@@ -89,7 +89,7 @@ const Admin = () => {
             </div>
           </section>
 
-          <section aria-labelledby="redeem" className="space-y-4">
+          <section aria-labelledby="redeem" className="space-y-4 animate-fade-in">
             <h2 id="redeem" className="text-2xl font-semibold text-app-text">แลกแต้มให้ผู้ใช้</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
               <div className="space-y-2">
@@ -124,9 +124,9 @@ const Admin = () => {
             )}
           </section>
 
-          <section aria-labelledby="history" className="space-y-4">
+          <section aria-labelledby="history" className="space-y-4 animate-fade-in">
             <h2 id="history" className="text-2xl font-semibold text-app-text">ประวัติการแลกแต้มทั้งหมด</h2>
-            <div className="bg-app-white rounded-3xl p-4">
+            <div className="bg-app-white rounded-3xl p-4 animate-fade-in">
               <Table>
                 <TableCaption>ประวัติการแลกแต้มล่าสุด</TableCaption>
                 <TableHeader>

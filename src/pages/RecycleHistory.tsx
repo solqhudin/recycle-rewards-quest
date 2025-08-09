@@ -32,7 +32,7 @@ const RecycleHistory = () => {
 
         <div className="space-y-4">
           {filteredHistory.map((entry) => (
-            <div key={entry.id} className="bg-app-white rounded-3xl p-6 shadow-lg">
+            <div key={entry.id} className="bg-app-white rounded-3xl p-6 shadow-lg animate-fade-in hover-scale">
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
                   <h3 className="text-app-primary text-lg font-medium mb-2">วันที่</h3>

@@ -62,7 +62,7 @@ const calculateMoney = (points: number) => {
       <div className="max-w-6xl mx-auto">
         <Navigation />
         
-        <div className="bg-app-container rounded-3xl p-8 shadow-lg">
+        <div className="bg-app-container rounded-3xl p-8 shadow-lg animate-fade-in">
           <div className="flex justify-between items-start mb-8">
             <div>
               <h2 className="text-app-text text-2xl mb-2">User</h2>
@@ -72,7 +72,7 @@ const calculateMoney = (points: number) => {
               {!user.isAdmin && (
                 <div className="text-right">
                   <h2 className="text-app-text text-2xl mb-3">Total Points</h2>
-                  <div className="inline-flex flex-col items-end bg-app-white rounded-2xl px-6 py-4 shadow-lg border border-app-border/50">
+              <div className="inline-flex flex-col items-end bg-app-white rounded-2xl px-6 py-4 shadow-lg border border-app-border/50 animate-fade-in">
                     <div className="flex items-center gap-3">
                       <Coins className="text-app-primary" size={36} aria-hidden />
                       <span className="leading-none tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-app-primary to-app-text text-7xl font-extrabold">
@@ -89,11 +89,11 @@ const calculateMoney = (points: number) => {
             <div className="flex justify-end">
               <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogTrigger asChild>
-                  <Button className="h-14 px-8 text-lg font-medium rounded-2xl bg-app-primary hover:bg-app-primary-hover text-app-white">
+                <Button className="h-14 px-8 text-lg font-medium rounded-2xl bg-app-primary hover:bg-app-primary-hover text-app-white hover-scale">
                     แลกคะแนน
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-md bg-app-white rounded-3xl">
+                <DialogContent className="sm:max-w-md bg-app-white rounded-3xl animate-fade-in">
                   <DialogHeader>
                     <DialogTitle className="text-app-primary text-2xl font-bold text-center">
                       Redeem Points

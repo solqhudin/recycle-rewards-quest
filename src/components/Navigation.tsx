@@ -11,7 +11,7 @@ const Navigation = () => {
   };
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `text-app-white text-lg font-medium px-4 py-2 transition-all ${
+    `text-app-white text-lg font-medium px-4 py-2 transition-all story-link hover-scale ${
       isActive ? 'border-b-2 border-app-white' : 'hover:opacity-80'
     }`;
 
