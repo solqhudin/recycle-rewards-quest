@@ -99,12 +99,17 @@ const [conversionRate, setConversionRate] = useState<number>(9);
   }, [users]);
 
   const login = async (studentId: string, password: string): Promise<boolean> => {
-    const foundUser = users.find(u => u.studentId === studentId && u.password === password);
+    const sid = studentId.trim();
+    const pwd = password.trim();
+    const foundUser = users.find(
+      (u) => u.studentId.trim() === sid && u.password.trim() === pwd
+    );
     if (foundUser) {
       setUser(foundUser);
       localStorage.setItem('currentUser', JSON.stringify(foundUser));
       return true;
     }
+    console.warn('Login failed for SID:', sid, 'Available SIDs:', users.map(u => u.studentId));
     return false;
   };
 
