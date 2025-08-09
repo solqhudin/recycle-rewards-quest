@@ -18,19 +18,27 @@ const Navigation = () => {
 return (
   <nav className="flex items-center justify-between mb-8">
     <div className="flex space-x-8">
-      <NavLink to="/dashboard" className={navLinkClass}>
-        Dashboard
-      </NavLink>
-      <NavLink to="/recycle-history" className={navLinkClass}>
-        Recycle History
-      </NavLink>
-      <NavLink to="/profile" className={navLinkClass}>
-        Profile
-      </NavLink>
-      {user?.isAdmin && (
-        <NavLink to="/admin" className={navLinkClass}>
-          Admin
-        </NavLink>
+      {user?.isAdmin ? (
+        <>
+          <NavLink to="/admin" className={navLinkClass}>
+            Admin
+          </NavLink>
+          <NavLink to="/profile" className={navLinkClass}>
+            Profile
+          </NavLink>
+        </>
+      ) : (
+        <>
+          <NavLink to="/dashboard" className={navLinkClass}>
+            Dashboard
+          </NavLink>
+          <NavLink to="/recycle-history" className={navLinkClass}>
+            Recycle History
+          </NavLink>
+          <NavLink to="/profile" className={navLinkClass}>
+            Profile
+          </NavLink>
+        </>
       )}
     </div>
     <button
