@@ -14,6 +14,8 @@ import RecycleHistory from "./pages/RecycleHistory";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
+import AdminRedeem from "./pages/AdminRedeem";
+
 
 const queryClient = new QueryClient();
 
@@ -32,6 +34,7 @@ const App = () => (
 <Route path="/recycle-history" element={<StudentRoute><RecycleHistory /></StudentRoute>} />
 <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
 <Route path="/admin" element={<AdminRoute><Admin /></AdminRoute>} />
+<Route path="/admin/redeem" element={<AdminRoute><AdminRedeem /></AdminRoute>} />
 <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
