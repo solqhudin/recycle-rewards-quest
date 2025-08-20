@@ -33,7 +33,7 @@ const Dashboard = () => {
                   <div className="mt-3 pt-3 border-t border-app-border/30">
                     <span className="text-app-text-muted text-xs">เทียบเท่า: </span>
                     <span className="text-app-text font-semibold text-sm">
-                      {(user.totalPoints * conversionRate).toFixed(2)} บาท
+                      {Math.floor(user.totalPoints / Math.max(1, conversionRate))} บาท
                     </span>
                   </div>
                 </div>
