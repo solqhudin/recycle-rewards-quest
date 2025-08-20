@@ -3,7 +3,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Coins } from 'lucide-react';
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user, conversionRate } = useAuth();
   
   if (!user) return null;
 
@@ -30,6 +30,12 @@ const Dashboard = () => {
                     </span>
                   </div>
                   <span className="text-app-text-muted text-sm mt-2">คะแนนสะสมของคุณ</span>
+                  <div className="mt-3 pt-3 border-t border-app-border/30">
+                    <span className="text-app-text-muted text-xs">เทียบเท่า: </span>
+                    <span className="text-app-text font-semibold text-sm">
+                      {(user.totalPoints * conversionRate).toFixed(2)} บาท
+                    </span>
+                  </div>
                 </div>
               </div>
             )}
