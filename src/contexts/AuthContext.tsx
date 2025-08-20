@@ -53,6 +53,14 @@ const initialUsers: User[] = [
     isAdmin: false
   },
   {
+    studentId: '406559030',
+    name: 'Pojang Doloh',
+    email: '406559030@yru.ac.th',
+    password: '406559030',
+    totalPoints: 100,
+    isAdmin: false
+  },
+  {
     studentId: 'admin',
     name: 'Administrator',
     email: 'admin@example.com',
