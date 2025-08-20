@@ -43,40 +43,65 @@ const AdminRedeem = () => {
             <p className="text-app-text-muted mt-1">เลือกผู้ใช้ ระบุคะแนนที่จะแลก แล้วกดยืนยัน</p>
           </header>
 
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
-            <div className="space-y-2">
-              <label className="text-app-text">ผู้ใช้</label>
-              <Select value={selectedStudentId} onValueChange={setSelectedStudentId}>
-                <SelectTrigger className="bg-app-white rounded-xl h-12">
-                  <SelectValue placeholder="เลือกผู้ใช้" />
-                </SelectTrigger>
-                <SelectContent>
-                  {studentUsers.map(u => (
-                    <SelectItem key={u.studentId} value={u.studentId}>{u.name} ({u.studentId})</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+          <section className="space-y-6">
+            {selectedUser && (
+              <div className="bg-app-white rounded-xl p-4 border border-app-border">
+                <h3 className="text-lg font-semibold text-app-text mb-2">ข้อมูลผู้ใช้</h3>
+                <div className="flex justify-between items-center">
+                  <span className="text-app-text">{selectedUser.name} ({selectedUser.studentId})</span>
+                  <span className="text-app-primary font-bold text-lg">{selectedUser.totalPoints} คะแนน</span>
+                </div>
+                <p className="text-app-text-muted text-sm mt-1">คะแนนสูงสุดที่สามารถแลกได้</p>
+              </div>
+            )}
 
-            <div className="space-y-2">
-              <label className="text-app-text">คะแนนที่จะแลก</label>
-              <Input type="number" value={redeemPoints} onChange={(e) => setRedeemPoints(e.target.value)} className="h-12 bg-app-white rounded-xl" />
-            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+              <div className="space-y-2">
+                <label className="text-app-text">ผู้ใช้</label>
+                <Select value={selectedStudentId} onValueChange={setSelectedStudentId}>
+                  <SelectTrigger className="bg-app-white rounded-xl h-12">
+                    <SelectValue placeholder="เลือกผู้ใช้" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {studentUsers.map(u => (
+                      <SelectItem key={u.studentId} value={u.studentId}>{u.name} ({u.studentId})</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
 
-            <div className="space-y-2">
-              <label className="text-app-text">จะได้เงิน</label>
-              <div className="h-12 flex items-center px-4 bg-app-white rounded-xl text-app-primary font-bold">
-                {moneyFromPoints(parseInt(redeemPoints) || 0)} บาท
+              <div className="space-y-2">
+                <label className="text-app-text">คะแนนที่จะแลก</label>
+                <div className="flex gap-2">
+                  <Input 
+                    type="number" 
+                    value={redeemPoints} 
+                    onChange={(e) => setRedeemPoints(e.target.value)} 
+                    className="h-12 bg-app-white rounded-xl" 
+                    max={selectedUser?.totalPoints || 0}
+                  />
+                  <Button 
+                    variant="outline" 
+                    onClick={() => setRedeemPoints(selectedUser?.totalPoints.toString() || '0')}
+                    className="h-12 px-3 rounded-xl"
+                    disabled={!selectedUser}
+                  >
+                    ทั้งหมด
+                  </Button>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-app-text">จะได้เงิน</label>
+                <div className="h-12 flex items-center px-4 bg-app-white rounded-xl text-app-primary font-bold">
+                  {moneyFromPoints(parseInt(redeemPoints) || 0)} บาท
+                </div>
+              </div>
+
+              <div className="md:col-span-3">
+                <Button onClick={handleConfirm} className="h-12 rounded-xl bg-app-primary text-app-white">ยืนยันแลกคะแนน</Button>
               </div>
             </div>
-
-            <div className="md:col-span-3">
-              <Button onClick={handleConfirm} className="h-12 rounded-xl bg-app-primary text-app-white">ยืนยันแลกคะแนน</Button>
-            </div>
-
-            {selectedUser && (
-              <p className="md:col-span-3 text-app-text-muted">คงเหลือปัจจุบันของ {selectedUser.name}: {selectedUser.totalPoints} คะแนน</p>
-            )}
           </section>
         </main>
       </div>
